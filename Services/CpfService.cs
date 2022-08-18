@@ -8,7 +8,17 @@ public class CpfService
 
     public bool Validate(string cpf)
     {
-        throw new NotImplementedException();
+        string cuspf = "";
+        
+        for(int i = 0; i<=10; i++)
+        {
+            if(i >= 9)
+            {
+                break;
+            }
+            cuspf += cpf.Substring(i, 1);
+        }
+        ultimosnum = getValidationDigits(cuspf)
     }
 
     public string Generate()
