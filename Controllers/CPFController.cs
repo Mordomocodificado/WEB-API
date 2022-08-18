@@ -14,8 +14,7 @@ public class CpfController : ControllerBase
 
     [HttpGet("generate")]
     public object Generate(
-        [FromServices]CpfService cpfService
-    )
+        [FromServices]CpfService cpfService)
     {
         string CPF = cpfService.Generate();
         return CPF;
