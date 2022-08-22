@@ -16,7 +16,9 @@ public class CpfController : ControllerBase
     public object Generate(
         [FromServices]CpfService cpfService)
     {
-        string CPF = cpfService.Generate();
-        return CPF;
+        return new{
+            Status = "Sucess",
+            cpf = cpfService.Generate()
+        };
     }
 }

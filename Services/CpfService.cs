@@ -8,24 +8,17 @@ public class CpfService
 
     public bool Validate(string cpf)
     {
-        string cuspf = "";
-        
-        for(int i = 0; i<=10; i++)
-        {
-            if(i >= 9)
-            {
-                break;
-            }
-            cuspf += cpf.Substring(i, 1);
-        }
-        ultimosnum = getValidationDigits(cuspf)
+        string cpf9digits = cpf.Substring(0, 9);
+        string cpfvalidation = cpf.Substring(9, 2);
+        string realValidation = getValidationDigits(cpf9digits);
+        return cpfvalidation == realValidation;
     }
 
     public string Generate()
     {
         string semente = rnd.Next(100000000, 999999999).ToString();
         Console.WriteLine(semente);
-
+        
         string verif = getValidationDigits(semente);
         string resuta = semente + verif;
 
